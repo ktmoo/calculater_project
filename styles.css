@@ -32,7 +32,6 @@ header {
 .screen {
     display: flex;
     margin: auto;
-    align-items: baseline;
     border: 2px solid #525454ec;
     border-radius: 10px;
     color: gray;

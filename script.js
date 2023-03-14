@@ -1,54 +1,50 @@
 
 let a = 0;
 let b = 0;
-let result = (a, b);
-let operation = ["+", "-", "*", "/"]
 
+let operation = ["+", "-", "*", "/"];
 
+let firstNumber = a;
+let secondNumber = b;
+let defaultScreen = " ";
 
-
-
-const numberButton = document.querySelectorAll(".number");
-const operationButtons = document.querySelectorAll(".operation");
+//* Selectors */
 
 const screen = document.querySelector(".screen");
-const addBtn = document.querySelector(".addBtn");
-const subBtn = document.querySelector(".subBtn");
-const multiplyBtn = document.querySelector(".multiplyBtn");
-const divideBtn = document.querySelector(".divideBtn");
-const clearBtn = document.querySelector(".clearBtn");
-const decimalBtn = document.querySelector(".decimalBtn");
-const equalBtn = document.querySelector(".equalBtn");
-const backspaceBtn = document.querySelector(".backspaceBtn");
-const btn1 = document.querySelector(".btn1");
-const btn2 = document.querySelector(".btn2");
-const btn3 = document.querySelector(".btn3");
-const btn4 = document.querySelector(".btn4");
-const btn5 = document.querySelector(".btn5");
-const btn6 = document.querySelector(".btn6");
-const btn7 = document.querySelector(".btn7");
-const btn8 = document.querySelector(".btn8");
-const btn9 = document.querySelector(".btn9");
-const btn0 = document.querySelector(".btn0");
+const addBtn = document.querySelector(".add");
+const subBtn = document.querySelector(".sub");
+const multiplyBtn = document.querySelector(".multiply");
+const divideBtn = document.querySelector(".divide");
+const clearBtn = document.querySelector(".clear");
+const decimalBtn = document.querySelector(".decimal");
+const equalBtn = document.querySelector(".equal");
+const backspaceBtn = document.querySelector(".backspace");
+const btn1 = document.querySelector("button[data-number='1']")
+const btn2 = document.querySelector("button[data-number='2']")
+const btn3 = document.querySelector("button[data-number='3']")
+const btn4 = document.querySelector("button[data-number='4']")
+const btn5 = document.querySelector("button[data-number='5']")
+const btn6 = document.querySelector("button[data-number='6']")
+const btn7 = document.querySelector("button[data-number='7']")
+const btn8 = document.querySelector("button[data-number='8']")
+const btn9 = document.querySelector("button[data-number='9']")
+const btn0 = document.querySelector("button[data-number='0']")
+
 
 function add(a, b) {
-    result = a + b;
-    return;
+    return a + b;
 };
 
 function sub(a, b) {
-    result = a - b;
-    return;
+    return a - b;
 };
 
 function multiply(a, b) {
-    result = a * b;
-    return;
+    return a * b;
 };
 
 function divide(a, b) {
-    result = a / b;
-    return;
+    return a / b;
 };
 
 
@@ -59,7 +55,6 @@ function backspace() {
 };
 
 function clear() {
-    result = 0;
     screen.textContent = "0";
     return;
 }
@@ -70,23 +65,29 @@ function decimal() {
 }
 
 function equal() {
-    screen.textContent = result;
-    return;
+    screen.textContent.equalBtn();
+    return result;
 }
 
-function calculate() {
-    if (operation == "+") {
-        add(a, b);
-    } else if (operation == "-") {
-        sub(a, b);
-        result = a - b;
-    } else if (operation == "*") {
-        multiply(a, b);
-    } else if (operation == "/") {
-        divide(a, b);
+
+function operate() {
+    if (screen.textContent === "+") {
+        result = add(a, b);
+    } else if (screen.textContent === "-") {
+        result = sub(a, b);
+    } else if (screen.textContent === "*") {
+        result = multiply(a, b);
+    } else if (screen.textContent === "/") {
+        result = divide(a, b);
+    } else {
+        result = "Error";
     }
-    return;
-}
+    return result;
+};
+
+
+
+
 
 
 
@@ -160,7 +161,7 @@ decimalBtn.addEventListener("click", () => {
 });
 
 equalBtn.addEventListener("click", () => {
-    screen.textContent = "=";
+    screen.textContent = "="
 
 });
 
@@ -168,17 +169,9 @@ backspaceBtn.addEventListener("click", () => {
     screen.textContent = backspace();
 });
 
-clearBtn.addEventListener("click", () => {
-    screen.textContent = "0";
-});
+
 
 decimalBtn.addEventListener("click", () => {
     screen.textContent = ".";
 });
-
-equalBtn.addEventListener("click", () => {
-    return equal();
-});
-
-
 
